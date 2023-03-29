@@ -1,0 +1,4 @@
+#en mode ubuntu
+docker build -t node . 
+ 
+ docker run -p 3000:3000 -v /mnt/d/DSIR/devops/dockerexample/docker/scraper-foot/:/app -v /app/node_modules --name ok node

@@ -1,0 +1,5 @@
+->lehna bech nesna3 image 5assa fiya  base  3la nginx 
+--
+  # utilse \ pour retourne  a la ligne   
+sudo docker run -tdi  -p 8000:80 -v /mnt/d/DSIR/devops/nginxwithDockerfile/:/usr/share/nginx/html/ --name new-nginx-conatiner new-image-nginx
+pour connaitre /mnt/d/DSIR/devops/nginxwithDockerfile/ en utilse  pwd
