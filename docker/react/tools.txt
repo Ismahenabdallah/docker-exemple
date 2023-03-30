@@ -1,0 +1,40 @@
+La première ligne spécifie l'image de base utilisée pour construire l'image personnalisée.
+La commande WORKDIR définit le répertoire de travail actuel pour le conteneur.
+La commande RUN met à jour les paquets disponibles et installe Git.
+La commande RUN clone le dépôt Git contenant l'application Node.js dans le répertoire /app/internationalization.
+La commande WORKDIR change le répertoire de travail actuel pour /app/internationalization.
+La commande COPY copie les fichiers package.json et package-lock.json dans le répertoire actuel du conteneur.
+La commande RUN exécute la commande npm install pour installer les dépendances de l'application.
+La commande EXPOSE indique le port TCP à exposer lorsque le conteneur sera en cours d'exécution.
+La commande CMD définit la commande par défaut à exécuter lorsque le conteneur est lancé. Dans ce cas, elle exécute la commande npm start pour démarrer l'application.
+
+
+FROM node 
+
+WORKDIR /app
+
+RUN apt-get update && \
+    apt-get install -y git 
+
+RUN git clone https://github.com/youssef-of-web/internationalization.git
+
+WORKDIR /app/internationalization
+
+COPY package*.json ./
+
+RUN npm install
+
+EXPOSE 3000
+
+CMD [ "npm" , "start" ]
+
+ app/internationalization
+
+/////
+en peut modifier cette docker file par 
+
+--> la defference (j'utilse le point  RUN git clone  https://github.com/youssef-of-web/internationalization.git .) 
+
+
+/app 
+m najemich na3mil npm i w ny 3andich package.json --> COPY package*.json

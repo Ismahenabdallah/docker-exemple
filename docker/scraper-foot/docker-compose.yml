@@ -1,0 +1,10 @@
+services:
+  scrapper:
+    build: .
+    container_name: scraper-foot-conatiner
+    ports:
+      - "4000:3000"
+    command: npm start 
+    volumes:
+      - ./:/app
+      - "/app/node_modules" 
