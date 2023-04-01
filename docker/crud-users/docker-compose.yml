@@ -1,34 +1,32 @@
-version: '3.0'
 services:
-  api:
-    build: ./server/
-    container_name: api
+  back:
+    build: ./server
+    container_name: back
     ports:
       - "3700:3700"
-    command: npm start  
-    environment:
-      MONGO_URI: mongodb://youssef:youssef@db:27017
     volumes:
       - "./server/:/app"  
       - "/app/node_modules"
-  web:
-    build: ./client/
-    container_name: web
+    command: npm start 
+    environment:
+      MONGO_URI: mongodb://ismahen:ismahen@dbMongo:27017 
+  front:
+    build: ./client
+    container_name: front
     ports:
       - "3000:3000"
-    command: npm start  
     volumes:
       - "./client/:/app"  
-      - "/app/node_modules"
-  db: 
+      - "/app/node_modules" 
+    command: npm start      
+    
+  dbMongo: 
     image: mongo
     restart: always
     environment:
-      MONGO_INITDB_ROOT_USERNAME: youssef
-      MONGO_INITDB_ROOT_PASSWORD: youssef
+      MONGO_INITDB_ROOT_USERNAME: ismahen
+      MONGO_INITDB_ROOT_PASSWORD: ismahen
     volumes:
       - db-data:/data/db
 volumes:
   db-data: {}        
-      
-    

@@ -38,5 +38,5 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "http://api:3700"
+  "proxy": "http://back:3700"
 }
